@@ -3,9 +3,18 @@
   "version": "1.0.0",
   "description": "this will help me revise the entire node and help me learn something new",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node index.js",
     "test": "jest"
   },
   "author": "swapnil vishwakarma",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-async-handler": "^1.2.0",
+    "mysql2": "^3.9.2",
+    "sequelize": "^6.37.1"
+  }
 }
