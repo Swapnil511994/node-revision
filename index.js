@@ -1,12 +1,12 @@
 import "dotenv/config";
 import { config } from "./config.js";
 import express from "express";
+import { registerAllModuleRoutes } from "./routes.js";
 
 const app = express();
+app.use(express.json({ limit: "20mb" }));
 
-app.use("/", (req, res) => {
-  res.json({ status: true, message: "HEllo World" });
-});
+registerAllModuleRoutes(app);
 
 app.listen(config.app.port, () => {
   console.log(`App working on port: ${config.app.port}`);

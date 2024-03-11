@@ -1,11 +1,11 @@
-import db from "../../../db.singleton";
+import { db } from "../../../db.singleton.js";
 
 export const deleteClient = async (clientId) => {
   try {
     const { Client } = db.models;
     const deletedRows = await Client.destroy({
       where: {
-        clientId: clientId,
+        client_id: clientId,
       },
     });
     if (deletedRows > 0) {
@@ -37,11 +37,13 @@ export const addClient = async (clientData) => {
       return {
         status: true,
         message: "Record created successfully",
+        data: newClient,
       };
     } else {
       return {
         status: false,
         message: "Unable to create record",
+        data: null,
       };
     }
   } catch (error) {
@@ -49,6 +51,7 @@ export const addClient = async (clientData) => {
     return {
       status: false,
       message: "Error while creating new client",
+      data: null,
     };
   }
 };
